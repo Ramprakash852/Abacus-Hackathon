@@ -6,11 +6,16 @@ STREAMLIT DASHBOARD (MVP)
 - Bar chart: anomalies by flag type
 - Table: top 20 anomalies including 'explanation' column
 - Filters: provider_id, date range
+- Auto-runs pipeline on startup if data doesn't exist
 """
 import streamlit as st
 import pandas as pd
 import numpy as np
 from pathlib import Path
+import sys
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 
 # Page configuration
@@ -19,6 +24,64 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+
+
+@st.cache_resource
+def run_pipeline_once():
+    """Run the pipeline once on startup if data doesn't exist."""
+    data_dir = Path("data/gold")
+    anomalies_file = data_dir / "anomalies.csv"
+    
+    # Check if data exists
+    if not anomalies_file.exists():
+        with st.spinner("🔄 Running data pipeline for the first time..."):
+            try:
+                from src.ingestion.ingest import run_ingest
+                from src.transform.transform import run_transform
+                from src.dq.rules import run_dq
+                from src.anomaly.detect import detect_anomalies
+                from src.llm.explain import explain_anomaly
+                
+                # Run pipeline steps
+                st.info("Step 1/5: Ingesting data...")
+                run_ingest()
+                
+                st.info("Step 2/5: Transforming data...")
+                transform_results = run_transform()
+                
+                st.info("Step 3/5: Running DQ rules...")
+                dq_anomalies = run_dq()
+                
+                st.info("Step 4/5: Detecting anomalies...")
+                anomalies = detect_anomalies(dq_anomalies)
+                
+                st.info("Step 5/5: Generating explanations...")
+                if anomalies is not None and len(anomalies) > 0:
+                    # Generate explanations for top 20
+                    anomalies_sorted = anomalies.sort_values("num_flags", ascending=False) if "num_flags" in anomalies.columns else anomalies
+                    explanations = []
+                    for idx, row in anomalies_sorted.head(20).iterrows():
+                        record = row.to_dict()
+                        explanation = explain_anomaly(record)
+                        explanations.append(explanation)
+                    
+                    anomalies["explanation"] = ""
+                    top_indices = anomalies_sorted.head(20).index
+                    for i, idx in enumerate(top_indices):
+                        anomalies.loc[idx, "explanation"] = explanations[i]
+                    
+                    # Save outputs
+                    output_dir = Path("data/gold")
+                    output_dir.mkdir(parents=True, exist_ok=True)
+                    anomalies.to_parquet(output_dir / "anomalies.parquet", index=False)
+                    anomalies.to_csv(output_dir / "anomalies.csv", index=False)
+                
+                st.success("✅ Pipeline completed successfully!")
+                return True
+            except Exception as e:
+                st.error(f"❌ Pipeline failed: {str(e)}")
+                return False
+    return True
 
 
 @st.cache_data
@@ -60,6 +123,9 @@ def get_anomaly_counts(anomalies: pd.DataFrame) -> pd.Series:
 def app():
     """Main Streamlit dashboard application."""
     
+    # Auto-run pipeline if data doesn't exist
+    run_pipeline_once()
+    
     # Header
     st.title("📊 Abacus Data Quality Dashboard")
     st.markdown("Healthcare Claims Anomaly Detection & Analysis")
@@ -69,6 +135,7 @@ def app():
     
     if anomalies.empty:
         st.error("No anomaly data found. Please run the pipeline first: `python src/run_pipeline.py`")
+        st.info("💡 Tip: Add CSV files to data/ folder and refresh the page to auto-run the pipeline.")
         return
     
     # Sidebar filters
