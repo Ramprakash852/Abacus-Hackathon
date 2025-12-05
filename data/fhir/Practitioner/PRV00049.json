@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "PRV00049",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.3",
+      "value": "PRV00049"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "7805745017"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Provider_49"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "display": "Cardiology"
+          }
+        ],
+        "text": "Cardiology"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "state": "OH"
+    }
+  ]
+}

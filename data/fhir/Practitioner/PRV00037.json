@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "PRV00037",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.3",
+      "value": "PRV00037"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "4131575764"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Provider_37"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "display": "Pediatrics"
+          }
+        ],
+        "text": "Pediatrics"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "state": "FL"
+    }
+  ]
+}

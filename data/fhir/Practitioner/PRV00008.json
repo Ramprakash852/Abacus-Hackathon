@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "PRV00008",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.3",
+      "value": "PRV00008"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1127978094"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Provider_8"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "display": "General"
+          }
+        ],
+        "text": "General"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "state": "FL"
+    }
+  ]
+}

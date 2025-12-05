@@ -1,0 +1,30 @@
+{
+  "resourceType": "Encounter",
+  "id": "enc-CLM00000895",
+  "identifier": [
+    {
+      "system": "urn:encounter:id",
+      "value": "enc-CLM00000895"
+    }
+  ],
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "subject": {
+    "reference": "Patient/MBR000039"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/PRV00039"
+      }
+    }
+  ],
+  "period": {
+    "start": "2023-10-06",
+    "end": "2023-10-06"
+  }
+}

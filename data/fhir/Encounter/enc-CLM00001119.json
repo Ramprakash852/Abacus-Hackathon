@@ -1,0 +1,30 @@
+{
+  "resourceType": "Encounter",
+  "id": "enc-CLM00001119",
+  "identifier": [
+    {
+      "system": "urn:encounter:id",
+      "value": "enc-CLM00001119"
+    }
+  ],
+  "status": "cancelled",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "subject": {
+    "reference": "Patient/MBR000440"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/PRV00033"
+      }
+    }
+  ],
+  "period": {
+    "start": "2023-06-24",
+    "end": "2023-06-24"
+  }
+}

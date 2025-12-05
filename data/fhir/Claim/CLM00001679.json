@@ -1,0 +1,84 @@
+{
+  "resourceType": "Claim",
+  "id": "CLM00001679",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.2",
+      "value": "CLM00001679"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "professional",
+        "display": "Professional"
+      }
+    ]
+  },
+  "use": "claim",
+  "created": "2023-11-26",
+  "patient": {
+    "reference": "Patient/MBR000347"
+  },
+  "provider": {
+    "reference": "Practitioner/PRV00033"
+  },
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "N39.0"
+          }
+        ]
+      }
+    }
+  ],
+  "procedure": [
+    {
+      "sequence": 1,
+      "procedureCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.ama-assn.org/go/cpt",
+            "code": "80053"
+          }
+        ]
+      }
+    }
+  ],
+  "total": {
+    "value": 9.84,
+    "currency": "USD"
+  },
+  "billablePeriod": {
+    "start": "2023-11-26",
+    "end": "2023-11-26"
+  },
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ama-assn.org/go/cpt",
+            "code": "80053"
+          }
+        ]
+      },
+      "servicedDate": "2023-11-26",
+      "unitPrice": {
+        "value": 9.84,
+        "currency": "USD"
+      },
+      "net": {
+        "value": 9.84,
+        "currency": "USD"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "PRV00001",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.3",
+      "value": "PRV00001"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "3746317213"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Provider_1"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "display": "Neurology"
+          }
+        ],
+        "text": "Neurology"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "state": "PA"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "resourceType": "Encounter",
+  "id": "enc-CLM00001524",
+  "identifier": [
+    {
+      "system": "urn:encounter:id",
+      "value": "enc-CLM00001524"
+    }
+  ],
+  "status": "in-progress",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "subject": {
+    "reference": "Patient/MBR000423"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/PRV00036"
+      }
+    }
+  ],
+  "period": {
+    "start": "2024-03-28",
+    "end": "2024-03-28"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "PRV00032",
+  "identifier": [
+    {
+      "system": "urn:oid:2.16.840.1.113883.3.8901.3",
+      "value": "PRV00032"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "5728765136"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Provider_32"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "display": "Orthopedics"
+          }
+        ],
+        "text": "Orthopedics"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "state": "TX"
+    }
+  ]
+}
