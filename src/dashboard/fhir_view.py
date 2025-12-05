@@ -1,10 +1,3 @@
-"""
-Simple Streamlit view to browse a few exported FHIR JSON resources
-
-- Load files under data/fhir
-- Show a table of files
-- When a file is selected show prettified JSON and selected key fields
-"""
 import streamlit as st
 import json
 import os

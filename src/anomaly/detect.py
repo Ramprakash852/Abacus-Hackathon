@@ -1,13 +1,3 @@
-"""
-ANOMALY DETECTION (pandas)
-
-- Function: detect_anomalies(df) where df is cleaned claims or DQ-annotated df
-- Compute z-score of claim_amount grouped by provider_id or cpt_code
-- Flag rows where z > 3 as amount_outlier
-- Combine DQ flags into final is_anomalous boolean
-- Add anomaly_reasons list per row
-- Return DataFrame with is_anomalous and anomaly_reasons
-"""
 import pandas as pd
 import numpy as np
 

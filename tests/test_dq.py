@@ -1,9 +1,3 @@
-"""
-Create pytest tests:
-- test_missing_fields_flag: a small DataFrame missing claim_amount should be flagged
-- test_duplicate_claim_flag: duplicated claim_id are flagged
-- test_amount_outlier: known outlier flagged by detect_anomalies
-"""
 import pytest
 import pandas as pd
 import numpy as np

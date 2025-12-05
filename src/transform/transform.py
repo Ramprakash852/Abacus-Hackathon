@@ -1,13 +1,3 @@
-"""
-TRANSFORM MODULE (pandas)
-
-- Function: run_transform(bronze_dir='data/bronze', silver_dir='data/silver')
-- Read bronze parquet files (claims, providers)
-- Normalize dates to ISO, trim/clean strings, cast amounts to float (coerce errors)
-- Replace negative amounts with NaN
-- Standardize ICD/CPT formats via regex (basic normalization)
-- Write cleaned parquet files to silver_dir and return DataFrames
-"""
 import pandas as pd
 import numpy as np
 from pathlib import Path

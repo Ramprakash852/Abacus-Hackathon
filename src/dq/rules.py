@@ -1,18 +1,3 @@
-"""
-DATA QUALITY RULES ENGINE (MVP)
-
-- Implement rule functions:
-  missing_mandatory_fields(df) -> boolean Series
-  duplicate_claim_id(df) -> boolean Series
-  invalid_dates(df) -> boolean Series
-  negative_or_zero_amount(df) -> boolean Series
-  invalid_icd_format(df) -> boolean Series
-- Implement run_dq(silver_dir='data/silver', output_dir='data/gold') that:
-  * loads cleaned claims
-  * computes flags per row and produces flags_list and num_flags
-  * writes anomalies to output_dir/anomalies.parquet and anomalies.csv
-  * returns anomalies DataFrame
-"""
 import pandas as pd
 import numpy as np
 from pathlib import Path

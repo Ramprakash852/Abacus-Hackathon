@@ -1,12 +1,3 @@
-"""
-LLM EXPLANATION MODULE (MVP)
-
-- Function: explain_anomaly(record: dict) -> str
-- Build a clear prompt from record: include claim_id, flags, claim_amount, provider_id, cpt/icd, service_date
-- If OPENAI_API_KEY present in env, call OpenAI completion (chat/completions) and return text
-- If key missing, return deterministic fallback explanation string composed from flags
-- Keep responses short: 2 sentences + 1 remediation suggestion
-"""
 import os
 from typing import Optional
 

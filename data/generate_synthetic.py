@@ -1,13 +1,3 @@
-"""
-GENERATE SYNTHETIC CLAIMS DATA (pandas)
-
-Goal:
-- Produce realistic CSVs for testing: data/claims.csv, data/providers.csv, data/members.csv
-- claims schema: claim_id, member_id, provider_id, claim_amount, service_date, icd_code, cpt_code, claim_status
-- Inject realistic errors: duplicates, missing fields, invalid dates/formats, outliers in claim_amount, invalid ICD/CPT formats
-- Provide function `generate_synthetic_claims(num_claims=2000, out_dir="data")` that writes CSV files to out_dir
-- When run as __main__, call generate_synthetic_claims()
-"""
 import pandas as pd
 import numpy as np
 from pathlib import Path

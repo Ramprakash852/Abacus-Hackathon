@@ -1,16 +1,3 @@
-"""
-ORCHESTRATOR: run_pipeline.py
-
-- Steps:
-  1. run_ingest()
-  2. run_transform()
-  3. run_dq()
-  4. detect_anomalies()
-  5. call explain_anomaly on top N anomalies and attach explanation column
-  6. write final anomalies to data/gold/anomalies.parquet and anomalies.csv
-- Print summary metrics: total claims, total anomalies, top reasons
-- Provide CLI entrypoint when invoked as __main__
-"""
 import sys
 from pathlib import Path
 

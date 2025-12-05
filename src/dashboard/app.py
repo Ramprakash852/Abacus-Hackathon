@@ -1,13 +1,3 @@
-"""
-STREAMLIT DASHBOARD (MVP)
-
-- Load data/gold/anomalies.csv (pandas)
-- Show KPIs: total claims, total anomalies, anomaly rate
-- Bar chart: anomalies by flag type
-- Table: top 20 anomalies including 'explanation' column
-- Filters: provider_id, date range
-- Auto-runs pipeline on startup if data doesn't exist
-"""
 import streamlit as st
 import pandas as pd
 import numpy as np

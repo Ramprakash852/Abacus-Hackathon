@@ -1,8 +1,3 @@
-"""
-Simple tests for FHIR mapper:
-- test_map_patient_to_fhir: ensure resourceType == "Patient" and id present
-- test_map_claim_to_fhir: ensure resourceType == "Claim", total present, patient reference exists
-"""
 def test_map_patient_and_claim():
     import pandas as pd
     from src.fhir.mapper import map_patient_to_fhir, map_claim_to_fhir

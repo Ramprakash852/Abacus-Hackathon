@@ -1,12 +1,3 @@
-"""
-PANDAS INGESTION MODULE
-
-- Function: run_ingest(input_dir="data", output_dir="data/bronze")
-- Read claims.csv, providers.csv, members.csv using pandas
-- Validate required columns present
-- Write parquet files to output_dir using pyarrow (fallback to CSV if pyarrow missing)
-- Return list or dict of written paths
-"""
 import pandas as pd
 from pathlib import Path
 

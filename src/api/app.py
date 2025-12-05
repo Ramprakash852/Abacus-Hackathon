@@ -1,20 +1,3 @@
-"""
-Small FastAPI service for UH-DQIP
-
-Endpoints:
-- GET /anomalies
-    * returns anomalies as JSON
-    * supports optional query params: provider_id, start_date, end_date, severity
-- GET /claim/{claim_id}/explanation
-    * returns the anomaly record and explanation for given claim_id
-    * calls the local explain_anomaly(record) from src.llm.explain if explanation missing
-- Implementation details:
-    * Load anomalies from data/gold/anomalies.csv (or data/gold/anomalies.parquet)
-    * Cache the DataFrame in memory for performance (simple global cache)
-    * Use Pydantic models for response shapes
-    * Handle missing files gracefully with informative HTTP responses
-    * Keep auth out for hackathon (can be added later) but read OPENAI_API_KEY from env for explanations
-"""
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from typing import List, Optional, Any

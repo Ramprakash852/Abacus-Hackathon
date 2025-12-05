@@ -1,19 +1,3 @@
-"""
-FHIR Compatibility Layer (basic)
-
-Goal:
-- Convert cleaned UH-DQIP tables (claims, providers, members) to simple FHIR resources:
-  - Claim (fhir.Claim)
-  - Patient (fhir.Patient)
-  - Practitioner (fhir.Practitioner)
-  - Encounter (fhir.Encounter) (simple)
-- Provide mapping functions that take pandas Series / dict and return Python dicts matching FHIR JSON structure.
-- Provide an `export_fhir_resources(claims_df, providers_df, members_df, out_dir="data/fhir")`
-  which writes one JSON per resource per claim (or grouped files).
-- Keep mappings minimalist but valid: include identifiers, references, status, total amount, service date, diagnosis/codes where present.
-- Use standard system URIs where possible (e.g., "http://hl7.org/fhir/sid/icd-10" for ICD) — use config if provided.
-- Include docstrings, type hints, and an example usage guarded by `if __name__ == "__main__":` that reads parquet from data/silver and writes JSON to data/fhir.
-"""
 from typing import Dict, Optional, Any
 import os
 import json
