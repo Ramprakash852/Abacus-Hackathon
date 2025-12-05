@@ -2,6 +2,45 @@
 
 A comprehensive data quality pipeline for healthcare claims processing, featuring anomaly detection, LLM-powered explanations, and FHIR compatibility.
 
+
+---
+
+### 1. Streamlit Dashboard (Live Demo)
+
+🔗 **Link**: [https://ramprakash852-abacus-hackathon-srcdashboardapp-up4nsy.streamlit.app/](https://ramprakash852-abacus-hackathon-srcdashboardapp-up4nsy.streamlit.app/)
+
+**Description**:
+- This is the **interactive UI** of the platform.
+- Users can explore anomaly detection results, data quality insights, KPIs, and AI explanations.
+- The dashboard visualizes outputs from the **Gold Layer** and presents insights for analysts and decision-makers.
+
+---
+
+### 2. FastAPI Backend
+
+🔗 **Link**: [https://payerinsightx.onrender.com/docs](https://payerinsightx.onrender.com/docs)
+
+**Description**:
+- Backend service exposing REST endpoints such as `/anomalies` and `/claim/{id}/explanation`.
+- Enables **programmatic access** to anomaly insights and explanations.
+- Demonstrates real-world FDE-level API integration.
+- Interactive API documentation available via Swagger UI.
+
+---
+
+### 3. FHIR Resources Viewer
+
+🔗 **Link**: [https://abacus-hackathon-fpkbbcsj6pkdggugbnhfql.streamlit.app/](https://abacus-hackathon-fpkbbcsj6pkdggugbnhfql.streamlit.app/)
+
+*(Also accessible from the main Streamlit Dashboard sidebar)*
+
+**Description**:
+- A viewer for **FHIR R4 resources** (Claim, Patient, Practitioner, Encounter).
+- Shows how cleaned claims are converted into **FHIR-standard JSON**.
+- Highlights interoperability and modern healthcare data standards.
+
+---
+
 ## Features
 
 - **Data Ingestion**: CSV to Parquet conversion with schema validation
@@ -133,6 +172,15 @@ After running the pipeline:
 - `data/gold/anomalies.parquet` - Same in Parquet format
 - `data/gold/claims_clean.parquet` - Clean claims passing all DQ rules
 - `data/fhir/` - FHIR R4 JSON resources (if `--export-fhir` flag used)
+
+---
+
+## Live Deployments
+
+### About the Deployment
+
+The dashboard, API, and FHIR viewer are deployed using cloud hosting platforms (Streamlit Cloud, Render). This deployment demonstrates production-readiness through modular architecture, separate serving layers, and pre-generated data outputs. The pipeline is not executed in the cloud; instead, Gold-layer outputs and FHIR files are pre-generated locally and included in the repository for demo purposes.
+
 
 ## License
 
